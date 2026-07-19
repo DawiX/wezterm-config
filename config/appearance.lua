@@ -3,17 +3,17 @@ local gpu_adapters = require("utils.gpu_adapter")
 -- local colors = require('colors.custom')
 
 return {
-  max_fps = 60,
+  max_fps = 30,
   front_end = "WebGpu",
   webgpu_power_preference = "LowPower",
   webgpu_preferred_adapter = gpu_adapters:pick_manual(gpu_adapters.__preferred_backend, 'IntegratedGpu')
     or gpu_adapters:pick_best(),
 
   -- cursor
-  animation_fps = 60,
+  animation_fps = 1,
   cursor_blink_ease_in = "EaseOut",
   cursor_blink_ease_out = "EaseOut",
-  default_cursor_style = "BlinkingBlock",
+  default_cursor_style = "SteadyBlock",
   cursor_blink_rate = 650,
 
   color_scheme = "Gruvbox dark, medium (base16)",
@@ -21,8 +21,8 @@ return {
   -- scrollbar
   enable_scroll_bar = true,
 
-  -- tab bar
-  enable_tab_bar = true,
+  -- tab bar (disabled - tmux handles tabs)
+  enable_tab_bar = false,
   hide_tab_bar_if_only_one_tab = true,
   use_fancy_tab_bar = false,
   tab_max_width = 25,
